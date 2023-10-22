@@ -1,21 +1,36 @@
 from selenium import webdriver
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 import pandas as pd
+import requests
 
-driver = webdriver.Chrome()
-products=[] #List to store name of the product
-prices=[] #List to store price of the product
-ratings=[] #List to store rating of the product
-driver.get("<a href="https://www.flipkart.com/laptops/">https://www.flipkart.com/laptops/</a>~buyback-guarantee-on-laptops-/pr?sid=6bo%2Cb5g&amp;amp;amp;amp;amp;amp;amp;amp;amp;uniq")
+url = "https://www.smartinsider.com/politicians/"
+response = requests.get(url)
 
-content = driver.page_source
-soup = BeautifulSoup(content)
-for a in soup.findAll('a',href=True, attrs={'class':'_31qSD5'}):
-    name=a.find('div', attrs={'class':'_3wU53n'})
-    price=a.find('div', attrs={'class':'_1vC4OE _2rQ-NK'})
-    rating=a.find('div', attrs={'class':'hGSR34 _2beYZw'})
-    products.append(name.text)
-    prices.append(price.text)
-    ratings.append(rating.text) 
-df = pd.DataFrame({'Product Name':products,'Price':prices,'Rating':ratings}) 
-df.to_csv('products.csv', index=False, encoding='utf-8')
+# Check if the request was successful (status code 200)
+if response.status_code == 200:
+    # Parse the HTML content of the page using BeautifulSoup
+    soup = BeautifulSoup(response.text, 'html.parser')
+    
+    # Locate the section containing recent trades
+    recent_trades_section = soup.find('section', {'class': 'recent-trades'})
+    
+    if recent_trades_section:
+        # Extract the relevant data
+        trade_items = recent_trades_section.find_all('div', {'class': 'trade-item'})
+        
+        for trade_item in trade_items:
+            # Extract and print the trade information
+            trade_date = trade_item.find('div', {'class': 'trade-date'}).text.strip()
+            trade_description = trade_item.find('div', {'class': 'trade-description'}).text.strip()
+            trade_type = trade_item.find('div', {'class': 'trade-type'}).text.strip()
+            trade_amount = trade_item.find('div', {'class': 'trade-amount'}).text.strip()
+            
+            print(f"Date: {trade_date}")
+            print(f"Description: {trade_description}")
+            print(f"Type: {trade_type}")
+            print(f"Amount: {trade_amount}")
+            print('-' * 40)
+    else:
+        print("Recent trades section not found on the page.")
+else:
+    print("Failed to retrieve the page. Status code:", response.status_code)
