@@ -34,18 +34,17 @@ for row in table.find_all('tr'):
         purchase_sale = columns[3].text.strip()
         trade_type = columns[4].text.strip()
         amount = columns[5].text.strip()
-        party = columns[6].text.strip()
 
         data.append({
             "Stock": stock,
             "Date Disclosed": date_disclosed,
             "Senator": senator,
-            "Purchase / Sale": purchase_sale,
+            "Action": purchase_sale,
             "Type": trade_type,
             "Amount": amount,
-            "Party": party
         })
 
 # Print the scraped data
 for entry in data:
     print(entry)
+
