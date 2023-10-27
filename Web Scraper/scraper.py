@@ -34,14 +34,19 @@ for row in table.find_all('tr'):
         purchase_sale = columns[3].text.strip()
         trade_type = columns[4].text.strip()
         amount = columns[5].text.strip()
-
+        
+        amount = amount.replace('$', '').replace(',', '')
+        lower,upper = amount.split('-')
+        lower = float(lower)
+        upper = float(upper)
+        amount = (lower+upper)/2
         data.append({
             "Stock": stock,
             "Date Disclosed": date_disclosed,
             "Senator": senator,
             "Action": purchase_sale,
             "Type": trade_type,
-            "Amount": amount,
+            "Avg Amount": amount,
         })
 
 # Print the scraped data
