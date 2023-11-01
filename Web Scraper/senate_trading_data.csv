@@ -1,0 +1,101 @@
+Stock,Date Disclosed,Senator,Action,Type,Amount
+ROAD,9/12/2023,Mark Warner,Sale,Stock,250001 - 500000
+FEP,9/7/2023,John Boozman,Sale,Stock,15001 - 50000
+BBEU,9/7/2023,John Boozman,Purchase,Stock,15001 - 50000
+PSQ,9/5/2023,Thomas R. Carper,Purchase,Other Securities,1001 - 15000
+JHEM,9/5/2023,Thomas R. Carper,Sale,Other Securities,1001 - 15000
+JHEM,9/5/2023,Thomas R. Carper,Sale,Other Securities,1001 - 15000
+SWKS,9/5/2023,Thomas R. Carper,Sale,Stock,1001 - 15000
+SOFI,9/5/2023,Thomas R. Carper,Purchase,Stock,1001 - 15000
+INOD,9/5/2023,Thomas R. Carper,Purchase,Stock,1001 - 15000
+RMD,9/5/2023,Thomas R. Carper,Purchase,Stock,1001 - 15000
+MPW,9/5/2023,Thomas R. Carper,Sale,Stock,1001 - 15000
+BAH,9/5/2023,Thomas R. Carper,Sale,Stock,1001 - 15000
+CRWD,9/5/2023,Thomas R. Carper,Sale,Stock,1001 - 15000
+ROK,9/5/2023,Thomas R. Carper,Purchase,Stock,1001 - 15000
+AQN,9/5/2023,Thomas R. Carper,Sale,Stock,1001 - 15000
+PSQ,9/5/2023,Thomas R. Carper,Sale,Other Securities,1001 - 15000
+PSQ,9/5/2023,Thomas R. Carper,Sale,Other Securities,1001 - 15000
+PSQ,9/5/2023,Thomas R. Carper,Purchase,Other Securities,1001 - 15000
+NTLA,9/5/2023,Thomas R. Carper,Sale,Stock,1001 - 15000
+PSQ,9/5/2023,Thomas R. Carper,Purchase,Other Securities,1001 - 15000
+NEE,9/5/2023,Thomas R. Carper,Purchase,Stock,1001 - 15000
+XCEM,9/5/2023,Thomas R. Carper,Purchase,Other Securities,1001 - 15000
+RMBS,9/5/2023,Thomas R. Carper,Sale,Stock,1001 - 15000
+FTNT,9/5/2023,Thomas R. Carper,Sale,Stock,1001 - 15000
+PG,8/14/2023,Tommy Tuberville,Sale,Stock Option (Type: Put; Strike: $145.0; Expiry: 06/21/2024),1001 - 15000
+CLF,8/14/2023,Tommy Tuberville,Purchase,Stock,50001 - 100000
+TXN,8/14/2023,Tommy Tuberville,Sale,Stock Option (Type: Put; Strike: $180.0; Expiry: 06/21/2024),1001 - 15000
+LPX,8/14/2023,Tommy Tuberville,Sale,Stock Option (Type: Not found; Strike: $77.5; Expiry: 02/16/2024),1001 - 15000
+HUMA,8/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+HUMA,8/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+PFE,8/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+WBA,8/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+KEY,8/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+UAA,8/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+CLF,8/14/2023,Tommy Tuberville,Sale,Stock Option (Type: Put; Strike: $18.0; Expiry: 10/20/2023),1001 - 15000
+CCL,8/14/2023,Tommy Tuberville,Sale,Stock Option (Type: Call; Strike: $17.5; Expiry: 06/21/2024),1001 - 15000
+HUMA,8/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+VZ,8/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+MMM,8/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+FGBI,8/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+FGBI,8/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+PSQ,8/2/2023,Thomas R. Carper,Purchase,Other Securities,1001 - 15000
+HDGE,8/2/2023,Thomas R. Carper,Sale,Other Securities,1001 - 15000
+VZ,8/2/2023,Thomas R. Carper,Purchase,Stock,1001 - 15000
+FNF,8/2/2023,Thomas R. Carper,Purchase,Stock,1001 - 15000
+PSQ,8/2/2023,Thomas R. Carper,Purchase,Other Securities,1001 - 15000
+HDGE,8/2/2023,Thomas R. Carper,Sale,Other Securities,15001 - 50000
+WMT,7/17/2023,Shelley Moore Capito,Sale,Stock,1001 - 15000
+NKE,7/17/2023,Shelley Moore Capito,Purchase,Stock,1001 - 15000
+CB,7/17/2023,Shelley Moore Capito,Sale,Stock,1001 - 15000
+AMGN,7/17/2023,Shelley Moore Capito,Sale,Stock,1001 - 15000
+AAPL,7/17/2023,Shelley Moore Capito,Purchase,Stock,1001 - 15000
+CLX,7/17/2023,Shelley Moore Capito,Sale,Stock,1001 - 15000
+MSFT,7/17/2023,Shelley Moore Capito,Sale,Stock,1001 - 15000
+MSFT,7/17/2023,Shelley Moore Capito,Sale,Stock,15001 - 50000
+KD,7/15/2023,Thom Tillis,Sale,Stock,1001 - 15000
+FITB,7/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+CCL,7/14/2023,Tommy Tuberville,Sale,Stock Option (Type: Put; Strike: $15.0; Expiry: 01/19/2024),1001 - 15000
+X,7/14/2023,Tommy Tuberville,Sale,Stock Option (Type: Put; Strike: $20.0; Expiry: 06/21/2024),1001 - 15000
+TSLA,7/14/2023,Tommy Tuberville,Sale,Stock Option (Type: Put; Strike: $190.0; Expiry: 12/15/2023),1001 - 15000
+CCL,7/14/2023,Tommy Tuberville,Sale,Stock Option (Type: Put; Strike: $15.0; Expiry: 01/19/2024),1001 - 15000
+COF,7/14/2023,Tommy Tuberville,Sale,Stock Option (Type: Put; Strike: $110.0; Expiry: 01/19/2024),1001 - 15000
+KEY,7/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+WBA,7/14/2023,Tommy Tuberville,Purchase,Stock,15001 - 50000
+QCOM,7/14/2023,Tommy Tuberville,Purchase,Stock,100001 - 250000
+CLF,7/14/2023,Tommy Tuberville,Purchase,Stock,15001 - 50000
+FGBI,7/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+QCOM,7/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+CFG,7/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+QCOM,7/14/2023,Tommy Tuberville,Purchase,Stock,50001 - 100000
+FGBI,7/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+CLF,7/14/2023,Tommy Tuberville,Purchase,Stock,15001 - 50000
+PFE,7/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+CVX,7/14/2023,Tommy Tuberville,Sale,Stock Option (Type: Call; Strike: $150.0; Expiry: 12/15/2023),1001 - 15000
+DVA,7/14/2023,Tommy Tuberville,Sale,Stock Option (Type: Put; Strike: $92.5; Expiry: 01/19/2024),1001 - 15000
+X,7/14/2023,Tommy Tuberville,Sale,Stock,50001 - 100000
+CVX,7/14/2023,Tommy Tuberville,Purchase,Stock Option (Type: Put; Strike: $155.0; Expiry: 06/16/2023),1001 - 15000
+X,7/14/2023,Tommy Tuberville,Sale,Stock Option (Type: Put; Strike: $25.0; Expiry: 06/21/2024),1001 - 15000
+WBA,7/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+MSFT,7/14/2023,Tommy Tuberville,Sale,Stock,250001 - 500000
+QCOM,7/14/2023,Tommy Tuberville,Sale,Stock Option (Type: Not found; Strike: $125.0; Expiry: 10/20/2023),1001 - 15000
+X,7/14/2023,Tommy Tuberville,Sale,Stock Option (Type: Put; Strike: $23.0; Expiry: 06/21/2024),15001 - 50000
+CLF,7/14/2023,Tommy Tuberville,Sale,Stock Option (Type: Call; Strike: $17.0; Expiry: 09/15/2023),1001 - 15000
+QCOM,7/14/2023,Tommy Tuberville,Purchase,Stock,100001 - 250000
+UAA,7/14/2023,Tommy Tuberville,Purchase,Stock,1001 - 15000
+IFF,6/30/2023,Gary Peters,Purchase,Stock,1001 - 15000
+TT,6/30/2023,Thomas R. Carper,Purchase,Stock,1001 - 15000
+ETN,6/30/2023,Thomas R. Carper,Sale,Stock,1001 - 15000
+KEYS,6/30/2023,Thomas R. Carper,Sale,Stock,1001 - 15000
+DIS,6/30/2023,Thomas R. Carper,Sale,Stock,1001 - 15000
+NTLA,6/30/2023,Thomas R. Carper,Purchase,Stock,1001 - 15000
+PYPL,6/30/2023,Thomas R. Carper,Sale,Stock,1001 - 15000
+NVDA,6/30/2023,Thomas R. Carper,Sale,Stock,1001 - 15000
+BAH,6/30/2023,Thomas R. Carper,Purchase,Stock,1001 - 15000
+MMM,6/20/2023,Angus King,Sale,Stock,1001 - 15000
+SIRI,6/15/2023,John Hickenlooper,Sale,Stock,15001 - 50000
+INTC,6/15/2023,John Hickenlooper,Sale,Stock,100001 - 250000
+AMT,6/15/2023,John Hickenlooper,Sale,Stock,100001 - 250000
+VZ,6/15/2023,John Hickenlooper,Sale,Stock,100001 - 250000
+CMG,6/15/2023,John Hickenlooper,Sale,Stock,100001 - 250000

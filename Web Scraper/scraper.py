@@ -37,19 +37,22 @@ for row in table.find_all('tr'):
         
         amount = amount.replace('$', '').replace(',', '')
         lower,upper = amount.split('-')
-        lower = float(lower)
-        upper = float(upper)
-        amount = (lower+upper)/2
+        # lower = float(lower)
+        # upper = float(upper)
+        # amount = (lower+upper)/2
         data.append({
             "Stock": stock,
             "Date Disclosed": date_disclosed,
             "Senator": senator,
             "Action": purchase_sale,
             "Type": trade_type,
-            "Avg Amount": amount,
+            "Amount": amount,
         })
 
-# Print the scraped data
-for entry in data:
-    print(entry)
+# Convert the data to a Pandas DataFrame
+df = pd.DataFrame(data)
+csv_file_path = "senate_trading_data.csv"
+df.to_csv(csv_file_path, index=False)
+for index, row in df.iterrows():
+    print(f"{index}: {row['Stock']} - {row['Date Disclosed']} - {row['Senator']} - {row['Action']} - {row['Type']} - {row['Amount']}")
 
