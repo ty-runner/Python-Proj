@@ -53,6 +53,10 @@ for row in table.find_all('tr'):
 df = pd.DataFrame(data)
 csv_file_path = "senate_trading_data.csv"
 df.to_csv(csv_file_path, index=False)
+grouped_trades = df.groupby('Senator').sum()
+print(grouped_trades)
+for senator, group in grouped_trades.groupby('Senator'):
+    print(f"{senator}: {group['Amount'].sum()}")
 for index, row in df.iterrows():
     print(f"{index}: {row['Stock']} - {row['Date Disclosed']} - {row['Senator']} - {row['Action']} - {row['Type']} - {row['Amount']}")
 
