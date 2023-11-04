@@ -53,10 +53,24 @@ for row in table.find_all('tr'):
 df = pd.DataFrame(data)
 csv_file_path = "senate_trading_data.csv"
 df.to_csv(csv_file_path, index=False)
-grouped_trades = df.groupby('Senator').sum()
-print(grouped_trades)
-for senator, group in grouped_trades.groupby('Senator'):
-    print(f"{senator}: {group['Amount'].sum()}")
+# grouped_trades = df.groupby('Senator').sum()
+# print(grouped_trades)
+# for senator, group in grouped_trades.groupby('Senator'):
+#     print(f"{senator}: {group['Amount'].sum()}")
+senator_actions = {}
 for index, row in df.iterrows():
-    print(f"{index}: {row['Stock']} - {row['Date Disclosed']} - {row['Senator']} - {row['Action']} - {row['Type']} - {row['Amount']}")
+    senator = row['Senator']
+    action = row['Action']
+    stock = row['Stock']
+    
+    # Create a key for the senator-action combination if it doesn't exist
+    if (senator, action) not in senator_actions:
+        senator_actions[(senator, action)] = []
+    
+    # Append the stock name to the corresponding senator-action combination
+    senator_actions[(senator, action)].append(stock)
+
+# Print the grouped stock names by senator actions
+for (senator, action), stocks in senator_actions.items():
+    print(f"{senator} - {action}: {', '.join(stocks)}")
 
