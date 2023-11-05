@@ -54,26 +54,23 @@ for row in table.find_all('tr'):
 df = pd.DataFrame(data)
 csv_file_path = "senate_trading_data.csv"
 df.to_csv(csv_file_path, index=False)
-# grouped_trades = df.groupby('Senator').sum()
-# print(grouped_trades)
-# for senator, group in grouped_trades.groupby('Senator'):
-#     print(f"{senator}: {group['Amount'].sum()}")
 
-unique_nodes = pd.concat([df['Senator'], df['Stock']]).drop_duplicates()
+# Define unique nodes
+unique_nodes = pd.concat([df['Senator'], df['Stock']])
 
-# Create a Sankey diagram using Plotly
+# Create a Sankey diagram
 fig = go.Figure(go.Sankey(
     node=dict(
         pad=15,
         thickness=20,
         line=dict(color="black", width=0.5),
-        label=unique_nodes,
+        label=unique_nodes.tolist(),
     ),
     link=dict(
         source=df['Senator'].apply(lambda x: unique_nodes[unique_nodes == x].index[0]),
         target=df['Stock'].apply(lambda x: unique_nodes[unique_nodes == x].index[0]),
         value=df['Amount'],
-        label=df['Action']
+        label=df['Action'],
     )
 ))
 
