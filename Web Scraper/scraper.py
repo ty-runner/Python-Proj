@@ -1,6 +1,7 @@
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import pandas as pd
+import plotly.graph_objects as go
 import requests
 
 url = "https://www.quiverquant.com/sources/senatetrading"
@@ -57,20 +58,24 @@ df.to_csv(csv_file_path, index=False)
 # print(grouped_trades)
 # for senator, group in grouped_trades.groupby('Senator'):
 #     print(f"{senator}: {group['Amount'].sum()}")
-senator_actions = {}
-for index, row in df.iterrows():
-    senator = row['Senator']
-    action = row['Action']
-    stock = row['Stock']
-    
-    # Create a key for the senator-action combination if it doesn't exist
-    if (senator, action) not in senator_actions:
-        senator_actions[(senator, action)] = []
-    
-    # Append the stock name to the corresponding senator-action combination
-    senator_actions[(senator, action)].append(stock)
 
-# Print the grouped stock names by senator actions
-for (senator, action), stocks in senator_actions.items():
-    print(f"{senator} - {action}: {', '.join(stocks)}")
+unique_nodes = pd.concat([df['Senator'], df['Stock']]).drop_duplicates()
 
+# Create a Sankey diagram using Plotly
+fig = go.Figure(go.Sankey(
+    node=dict(
+        pad=15,
+        thickness=20,
+        line=dict(color="black", width=0.5),
+        label=unique_nodes,
+    ),
+    link=dict(
+        source=df['Senator'].apply(lambda x: unique_nodes[unique_nodes == x].index[0]),
+        target=df['Stock'].apply(lambda x: unique_nodes[unique_nodes == x].index[0]),
+        value=df['Amount'],
+        label=df['Action']
+    )
+))
+
+fig.update_layout(title_text="Senator Stock Actions Sankey Diagram")
+fig.show()
