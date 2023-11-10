@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import plotly.graph_objects as go
 import requests
+import matplotlib.pyplot as plt
 
 url = "https://www.quiverquant.com/sources/senatetrading"
 response = requests.get(url)
@@ -56,24 +57,30 @@ csv_file_path = "senate_trading_data.csv"
 #if we have duplicates, we shouldn't add them to the data, we can iterate through the csv and then take out the data that matches with the lines in the csv
 df.to_csv(csv_file_path, index=False)
 
-# Define unique nodes
-unique_nodes = pd.concat([df['Senator'], df['Stock']])
+senator_stats = df.groupby('Senator').agg({
+    'Action': 'count',  # Number of transactions
+    'Amount': 'sum',    # Total amount traded
+})
 
-# Create a Sankey diagram
-fig = go.Figure(go.Sankey(
-    node=dict(
-        pad=15,
-        thickness=20,
-        line=dict(color="black", width=0.5),
-        label=unique_nodes.tolist(),
-    ),
-    link=dict(
-        source=df['Senator'].apply(lambda x: unique_nodes[unique_nodes == x].index[0]),
-        target=df['Stock'].apply(lambda x: unique_nodes[unique_nodes == x].index[0]),
-        value=df['Amount'],
-        label=df['Action'],
-    )
-))
+# Visualize the data
+# For example, you can create a bar chart to show the number of transactions by senator.
+senator_stats['Action'].plot(kind='bar', figsize=(10, 6))
+plt.title('Number of Stock Transactions by Senator')
+plt.xlabel('Senator')
+plt.ylabel('Number of Transactions')
+plt.xticks(rotation=15)
+plt.show()
 
-fig.update_layout(title_text="Senator Stock Actions Sankey Diagram")
-fig.show()
+# Analyze stock transactions by stock symbol
+stock_stats = df.groupby('Stock').agg({
+    'Amount': 'sum',    # Total amount traded
+})
+
+# Visualize the data
+# For example, you can create a bar chart to show the total amount traded by stock symbol.
+stock_stats['Amount'].plot(kind='bar', figsize=(10, 6))
+plt.title('Total Amount Traded by Stock Symbol')
+plt.xlabel('Stock Symbol')
+plt.ylabel('Total Amount Traded')
+plt.xticks(rotation=0)
+plt.show()
