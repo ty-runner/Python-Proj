@@ -53,6 +53,7 @@ for row in table.find_all('tr'):
 # Convert the data to a Pandas DataFrame
 df = pd.DataFrame(data)
 csv_file_path = "senate_trading_data.csv"
+#if we have duplicates, we shouldn't add them to the data, we can iterate through the csv and then take out the data that matches with the lines in the csv
 df.to_csv(csv_file_path, index=False)
 
 # Define unique nodes
