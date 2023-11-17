@@ -4,6 +4,9 @@ import pandas as pd
 import plotly.graph_objects as go
 import requests
 import matplotlib.pyplot as plt
+from flask import Flask, render_template
+from io import BytesIO
+import base64
 
 url = "https://www.quiverquant.com/sources/senatetrading"
 response = requests.get(url)
@@ -61,26 +64,39 @@ senator_stats = df.groupby('Senator').agg({
     'Action': 'count',  # Number of transactions
     'Amount': 'sum',    # Total amount traded
 })
-
-# Visualize the data
-# For example, you can create a bar chart to show the number of transactions by senator.
-senator_stats['Action'].plot(kind='bar', figsize=(10, 6))
-plt.title('Number of Stock Transactions by Senator')
-plt.xlabel('Senator')
-plt.ylabel('Number of Transactions')
-plt.xticks(rotation=15)
-plt.show()
-
-# Analyze stock transactions by stock symbol
 stock_stats = df.groupby('Stock').agg({
     'Amount': 'sum',    # Total amount traded
 })
+app = Flask(__name__)
 
-# Visualize the data
-# For example, you can create a bar chart to show the total amount traded by stock symbol.
-stock_stats['Amount'].plot(kind='bar', figsize=(10, 6))
-plt.title('Total Amount Traded by Stock Symbol')
-plt.xlabel('Stock Symbol')
-plt.ylabel('Total Amount Traded')
-plt.xticks(rotation=0)
-plt.show()
+@app.route('/')
+def index():
+    # Generate plots
+    senator_stats_plot = generate_bar_chart(senator_stats, 'Number of Stock Transactions by Senator', 'Senator', 'Number of Transactions')
+    stock_stats_plot = generate_bar_chart(stock_stats, 'Total Amount Traded by Stock Symbol', 'Stock Symbol', 'Total Amount Traded')
+
+    # Convert plots to HTML format
+    senator_stats_plot_html = plot_to_html(senator_stats_plot)
+    stock_stats_plot_html = plot_to_html(stock_stats_plot)
+
+    # Render the HTML template with the plots
+    return render_template('index.html', senator_stats_plot=senator_stats_plot_html, stock_stats_plot=stock_stats_plot_html)
+
+def generate_bar_chart(data, title, xlabel, ylabel):
+    plt.figure(figsize=(10, 6))
+    data.plot(kind='bar')
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.xticks(rotation=15)
+    return plt
+
+def plot_to_html(plot):
+    img = BytesIO()
+    plot.savefig(img, format='png')
+    img.seek(0)
+    plot_data = base64.b64encode(img.getvalue()).decode()
+    return f'<img src="data:image/png;base64, {plot_data}" alt="plot">'
+
+if __name__ == '__main__':
+    app.run(debug=True)
