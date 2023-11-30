@@ -76,11 +76,11 @@ def index():
     stock_stats_plot = generate_bar_chart(stock_stats, 'Total Amount Traded by Stock Symbol', 'Stock Symbol', 'Total Amount Traded')
 
     # Convert plots to HTML format
-    senator_stats_plot_html = plot_to_html(senator_stats_plot)
-    stock_stats_plot_html = plot_to_html(stock_stats_plot)
+    # senator_stats_plot_html = plot_to_html(senator_stats_plot)
+    # stock_stats_plot_html = plot_to_html(stock_stats_plot)
 
     # Render the HTML template with the plots
-    return render_template('index.html', senator_stats_plot=senator_stats_plot_html, stock_stats_plot=stock_stats_plot_html)
+    # return render_template('index.html', senator_stats_plot=senator_stats_plot_html, stock_stats_plot=stock_stats_plot_html)
 
 def generate_bar_chart(data, title, xlabel, ylabel):
     plt.figure(figsize=(10, 6))
@@ -89,6 +89,7 @@ def generate_bar_chart(data, title, xlabel, ylabel):
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.xticks(rotation=15)
+    plt.show()
     return plt
 
 def plot_to_html(plot):
