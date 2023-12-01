@@ -38,10 +38,13 @@ for row in table.find_all('tr'):
         senator = columns[2].text.strip()
         purchase_sale = columns[3].text.strip()
         trade_type = columns[4].text.strip()
-        amount = columns[5].text.strip()
-        
-        amount = amount.replace('$', '').replace(',', '')
-        lower,upper = amount.split('-')
+        amount = columns[5].text.strip().replace('$', '').replace(',', '')
+        if '-' in amount:
+            lower, upper = map(float, amount.split('-'))
+            amount = (lower + upper) / 2
+        else:
+            amount = float(amount)
+
         # lower = float(lower)
         # upper = float(upper)
         # amount = (lower+upper)/2
@@ -76,11 +79,11 @@ def index():
     stock_stats_plot = generate_bar_chart(stock_stats, 'Total Amount Traded by Stock Symbol', 'Stock Symbol', 'Total Amount Traded')
 
     # Convert plots to HTML format
-    # senator_stats_plot_html = plot_to_html(senator_stats_plot)
-    # stock_stats_plot_html = plot_to_html(stock_stats_plot)
+    senator_stats_plot_html = plot_to_html(senator_stats_plot)
+    stock_stats_plot_html = plot_to_html(stock_stats_plot)
 
     # Render the HTML template with the plots
-    # return render_template('index.html', senator_stats_plot=senator_stats_plot_html, stock_stats_plot=stock_stats_plot_html)
+    return render_template('index.html', senator_stats_plot=senator_stats_plot_html, stock_stats_plot=stock_stats_plot_html)
 
 def generate_bar_chart(data, title, xlabel, ylabel):
     plt.figure(figsize=(10, 6))
