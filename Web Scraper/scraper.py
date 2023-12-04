@@ -76,28 +76,27 @@ app = Flask(__name__)
 def index():
     # Generate plots
     senator_stats_plot = generate_bar_chart(senator_stats, 'Number of Stock Transactions by Senator', 'Senator', 'Number of Transactions')
-    stock_stats_plot = generate_bar_chart(stock_stats, 'Total Amount Traded by Stock Symbol', 'Stock Symbol', 'Total Amount Traded')
 
     # Convert plots to HTML format
     senator_stats_plot_html = plot_to_html(senator_stats_plot)
+    stock_stats_plot = generate_bar_chart(stock_stats, 'Total Amount Traded by Stock Symbol', 'Stock Symbol', 'Total Amount Traded')
     stock_stats_plot_html = plot_to_html(stock_stats_plot)
 
     # Render the HTML template with the plots
     return render_template('index.html', senator_stats_plot=senator_stats_plot_html, stock_stats_plot=stock_stats_plot_html)
 
 def generate_bar_chart(data, title, xlabel, ylabel):
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(2, 8))
     data.plot(kind='bar')
     plt.title(title)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.xticks(rotation=15)
-    plt.show()
     return plt
 
 def plot_to_html(plot):
     img = BytesIO()
-    plot.savefig(img, format='png')
+    plot.savefig(img, format='png', dpi=100)
     img.seek(0)
     plot_data = base64.b64encode(img.getvalue()).decode()
     return f'<img src="data:image/png;base64, {plot_data}" alt="plot">'
